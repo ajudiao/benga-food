@@ -8,7 +8,7 @@ export function Category() {
     const renderCard = categories.map(card => {
         return (
             // Card
-            <div className="flex-1 md:flex-row flex-col items-center gap-x-10 mt-20" key={card.id}>
+            <div className="flex-1 basis-[300px]" key={card.id}>
                 {/** Card Image */}
                 <div className="w-full min-h-[30vh] relative -mb-10">
                     <img src={card.image} alt="" />
@@ -26,11 +26,11 @@ export function Category() {
 
 return (
     <section>
-        <div className="max-w-[1400px] mx-auto py-20">
+        <div className="max-w-350 mx-auto py-20 px-7">
             <Heading highlight="Shop" heading="by Category" />
 
             { /** Category Card */}
-            <div className="flex gap-10 mt-15">
+            <div className="flex flex-wrap gap-10 md:mt-15 mt-10">
                 {renderCard}
             </div>
         </div>
