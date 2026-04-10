@@ -4,6 +4,7 @@ import { GoHeartFill } from "react-icons/go"
 import { HiShoppingBag } from "react-icons/hi"
 import { IoSearch } from "react-icons/io5"
 import { TbMenu2, TbMenu3 } from "react-icons/tb"
+import Logo from '../../assets/logo.png'
 
 export function Navbar() {
 
@@ -25,8 +26,8 @@ export function Navbar() {
     return (
         <header className={`bg-white fixed top-0 right-0 left-0 z-50 ${isScrolled ? 'drop-shadow-[0_4px_25px_rgba(0,0,0,0.1)]' : ''}`}>
             <nav className='max-w-350 px-10 mx-auto md:h-[14vh] h-[12vh] items-center flex justify-between'>
-                <a href="#" className='text-3xl font-bold'>
-                    <span className="text-orange-500">B</span>enga<span className="text-orange-500">F</span>ood
+                <a href="#" className='h-20 w-20 rounded-full flex justify-center items-center'>
+                    <img src={Logo} alt="" />        
                 </a>
                 {/** Desktop Menu */}
                 <ul className="md:flex items-center gap-x-15 hidden">

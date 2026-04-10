@@ -1,10 +1,10 @@
 import { Button } from "../Button/Button";
-import Freshfruits from '../../assets/fresh-fruits.png'
+import Benga from '../../assets/benga.png'
 
 export function Discount() {
 
     return (
-        <section className='bg-zinc-100 bg-right bg-contain bg-no-repeat' style={{backgroundImage: `url(${Freshfruits})`}}>
+        <section className='bg-zinc-100 bg-right bg-contain bg-no-repeat' style={{backgroundImage: `url(${Benga})`}}>
             <div className="md:bg-transparent bg-zinc-100 flex md:flex-row flex-col max-w-300 mx-auto px-10 py-10">
                 <span className="md:text-9xl text-5xl  text-orange-500 transform md:-rotate-90 h-fit font-bold md:self-center">20%</span>
                 <div className="max-w-[700px]">

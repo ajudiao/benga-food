@@ -1,6 +1,6 @@
 import { Heading } from "../Heading/Heading";
 import { Button } from "../Button/Button";
-import FruitsAndVeggies from '../../assets/fruits-and-veggies.png'
+import Benga from '../../assets/benga.png'
 
 
 export function Category() {
@@ -43,18 +43,18 @@ const categories = [
         id: 1,
         title: "Frutas e Verduras",
         descripition: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.",
-        image: FruitsAndVeggies
+        image: Benga
     },
     {
         id: 2,
         title: "Frutas e Verduras",
         descripition: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.",
-        image: FruitsAndVeggies
+        image: Benga
     },
     {
         id: 3,
         title: "Frutas e Verduras",
         descripition: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.",
-        image: FruitsAndVeggies
+        image: Benga
     },
 ]

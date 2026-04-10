@@ -1,6 +1,6 @@
 import { FaHeart, FaLeaf, FaSeedling } from "react-icons/fa";
 import { Heading } from "../Heading/Heading";
-import BasketFullVegetables from '../../assets/basket-full-vegetables.png'
+import HeroBenga from '../../assets/hero_benga.png'
 
 
 
@@ -47,7 +47,7 @@ export function Values() {
                         {leftValues}
                     </div>
                     <div className="md:flex w-1/2 hidden">
-                        <img src={BasketFullVegetables} alt="" />
+                        <img src={HeroBenga} alt="" />
                     </div>
                     {/* Right Values */}
                     <div className="flex flex-col justify-between md:min-h-100 gap-15">
