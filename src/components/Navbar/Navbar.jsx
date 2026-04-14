@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react"
-import { GiHamburgerMenu } from "react-icons/gi"
 import { GoHeartFill } from "react-icons/go"
 import { HiShoppingBag } from "react-icons/hi"
 import { IoSearch } from "react-icons/io5"
 import { TbMenu2, TbMenu3 } from "react-icons/tb"
-import Logo from '../../assets/logo.png'
+import { NavLink } from "react-router-dom"
 
 export function Navbar() {
 
     const [showMenu, setShowMenu] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false)
 
-    const toglleMenu = () => {
+    const toggleMenu = () => {
         setShowMenu(!showMenu)
     }
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10)
@@ -23,76 +23,79 @@ export function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    const navLinkClass = ({isActive}) => 
+        `font-semibold tracking-wider transition-colors duration-300 ${isActive ? 'text-orange-500' : 'text-zinc-800 hover:text-orange-500'}`;
+
     return (
-        <header className={`bg-white fixed top-0 right-0 left-0 z-50 ${isScrolled ? 'drop-shadow-[0_4px_25px_rgba(0,0,0,0.1)]' : ''}`}>
-            <nav className='max-w-350 px-10 mx-auto md:h-[14vh] h-[12vh] items-center flex justify-between'>
-                <a href="#" className='h-20 w-20 rounded-full flex justify-center items-center'>
-                    <img src={Logo} alt="" />        
-                </a>
+        <header className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-2' : 'bg-white py-4'}`}>
+            <nav className='max-w-7xl px-6 mx-auto flex justify-between items-center'>
+                <NavLink to="/" className='flex items-center gap-2'>
+                   <h1 className="text-2xl md:text-3xl font-black italic tracking-tighter">
+                       <span className="text-orange-500">BENGA</span>
+                       <span className="text-zinc-800">FOOD</span>
+                   </h1>      
+                </NavLink>
+
                 {/** Desktop Menu */}
-                <ul className="md:flex items-center gap-x-15 hidden">
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-orange-500">Início</a>
-                    </li>
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-zinc-800 hover:text-orange-500">Sobre</a>
-                    </li>
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-zinc-800 hover:text-orange-500">Processos</a>
-                    </li>
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-zinc-800 hover:text-orange-500">Contato</a>
-                    </li>
+                <ul className="hidden md:flex items-center gap-x-8">
+                    <li><NavLink to="/" className={navLinkClass}>Início</NavLink></li>
+                    <li><NavLink to="/allproducts" className={navLinkClass}>Cardápio</NavLink></li>
+                    <li><NavLink to="/burger" className={navLinkClass}>Burgers</NavLink></li>
+                    <li><NavLink to="/pizza" className={navLinkClass}>Pizzas</NavLink></li>
+                    <li><NavLink to="/refeicao" className={navLinkClass}>Refeições</NavLink></li>
                 </ul>
 
                 {/** Nav Actions */}
-                <div className="flex items-center gap-x-5">
-                    {/** Input Field */}
-                    <div className="md:flex p-1 border-2 border-orange-500 rounded-full hidden">
-                        <input type="text" name="search" placeholder="Pesquisar..." id="search" autoComplete="off" className="flex-1 h-[5vh] px-3 focus:outline-none" />
-                        <button className="bg-gradient-to-b from-red-600 to-orange-500 text-white w-10 h-10 flex justify-center items-center rounded-full text-xl">
-                            <IoSearch />
-                        </button>
-
+                <div className="flex items-center gap-x-4 md:gap-x-6">
+                    {/** Search Bar (Desktop) */}
+                    <div className="hidden lg:flex items-center bg-zinc-100 rounded-full px-4 py-2 border border-transparent focus-within:border-orange-500 transition-all">
+                        <input 
+                            type="text" 
+                            placeholder="Buscar sabor..." 
+                            className="bg-transparent border-none focus:outline-none text-sm w-32 xl:w-48"
+                        />
+                        <IoSearch className="text-zinc-400 text-xl cursor-pointer hover:text-orange-500" />
                     </div>
-                    <a href="#" className="text-zinc-500 text-2xl">
-                        <GoHeartFill />
-                    </a>
-                    <a href="#" className="text-zinc-500 text-2xl">
-                        <HiShoppingBag />
-                    </a>
 
-                    <a href="#" className="text-zinc-800 text-3xl md:hidden" onClick={toglleMenu}>
+                    <div className="flex items-center gap-x-3 md:gap-x-4">
+                        <button className="text-zinc-600 hover:text-red-500 transition-colors relative">
+                            <GoHeartFill className="text-2xl" />
+                            <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                        </button>
+                        <button className="text-zinc-600 hover:text-orange-500 transition-colors relative">
+                            <HiShoppingBag className="text-2xl" />
+                            <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                        </button>
                         
-                        { showMenu ? <TbMenu3 /> : <TbMenu2 /> }
-                    </a>
+                        {/** Mobile Toggle */}
+                        <button className="text-zinc-800 text-3xl md:hidden" onClick={toggleMenu}>
+                            { showMenu ? <TbMenu3 /> : <TbMenu2 /> }
+                        </button>
+                    </div>
                 </div>
 
-
-                {/** Mobile Menu */}
-                <ul className={`flex flex-col gap-y-12 bg-orange-500/50 backdrop-blur-xl shadow-xl rounded-xl p-10 items-center gap-x-15 md:hidden absolute top-30 -left-full transform -translate-x-1/2 transition-all duration-500 ${showMenu ? 'left-1/2' : ''}`}>
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-orange-500">Início</a>
-                    </li>
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-zinc-800 hover:text-orange-500">Sobre</a>
-                    </li>
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-zinc-800 hover:text-orange-500">Processos</a>
-                    </li>
-                    <li>
-                        <a href="#" className="font-semibold tracking-wider text-zinc-800 hover:text-orange-500">Contato</a>
-                    </li>
-
-                    {/** Nav Actions */}
-                    <li className="flex p-1 border-2 border-orange-500 rounded-full md:hidden">
-                        <input type="text" name="search" placeholder="Pesquisar..." id="search" autoComplete="off" className="flex-1 h-[5vh] px-3 focus:outline-none" />
-                        <button className="bg-gradient-to-b from-red-600 to-orange-500 text-white w-10 h-10 flex justify-center items-center rounded-full text-xl">
-                            <IoSearch />
-                        </button>
-                    </li>
-
-
+                {/** Mobile Menu Overlay */}
+                <div className={`fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity duration-300 ${showMenu ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={() => setShowMenu(false)}></div>
+                
+                {/** Mobile Menu Drawer */}
+                <ul className={`fixed top-0 right-0 h-full w-[70%] bg-white z-50 p-8 flex flex-col gap-y-6 shadow-2xl transition-transform duration-300 md:hidden ${showMenu ? 'translate-x-0' : 'translate-x-full'}`}>
+                    <div className="flex justify-between items-center mb-8">
+                        <h2 className="font-bold text-xl">Menu</h2>
+                        <button onClick={() => setShowMenu(false)} className="text-3xl text-zinc-800"><TbMenu3 /></button>
+                    </div>
+                    <li><NavLink to="/" onClick={() => setShowMenu(false)} className="text-lg font-medium text-zinc-800 block border-b pb-2">Início</NavLink></li>
+                    <li><NavLink to="/allproducts" onClick={() => setShowMenu(false)} className="text-lg font-medium text-zinc-800 block border-b pb-2">Cardápio Completo</NavLink></li>
+                    <li><NavLink to="/burger" onClick={() => setShowMenu(false)} className="text-lg font-medium text-zinc-800 block border-b pb-2">Hambúrgueres</NavLink></li>
+                    <li><NavLink to="/pizza" onClick={() => setShowMenu(false)} className="text-lg font-medium text-zinc-800 block border-b pb-2">Pizzas</NavLink></li>
+                    <li><NavLink to="/refeicao" onClick={() => setShowMenu(false)} className="text-lg font-medium text-zinc-800 block border-b pb-2">Refeições</NavLink></li>
+                    
+                    <div className="mt-auto pt-8">
+                        <div className="flex items-center bg-zinc-100 rounded-xl px-4 py-3 mb-4">
+                            <input type="text" placeholder="Pesquisar..." className="bg-transparent flex-1 focus:outline-none" />
+                            <IoSearch className="text-zinc-500 text-xl" />
+                        </div>
+                        <p className="text-center text-zinc-400 text-sm">© 2026 BengaFood</p>
+                    </div>
                 </ul>
             </nav>
         </header>

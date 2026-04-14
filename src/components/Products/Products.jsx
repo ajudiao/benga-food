@@ -3,6 +3,7 @@ import { Heading } from "../Heading/Heading";
 import ProductList from "../ProductList/ProductList";
 import { Cards } from "../Cards/Cards";
 import { Button } from "../Button/Button";
+import { Link } from "react-router-dom";
 
 export function Products() {
     const [activeTab, setActiveTab] = useState('all');
@@ -27,8 +28,6 @@ export function Products() {
             )
         }
     )
-
-    console.log(fiteredItems)
     return (
         <section>
             <div className="max-w-300 mx-auto px-10 py-20">
@@ -54,7 +53,9 @@ export function Products() {
                 </div>
 
                 <div className="mt-15 mx-auto w-fit">
-                    <Button content="View All" />
+                    <Link to='/allproducts' className="bg-linear-to-b from-red-400 to-orange-500 text-white rounded-lg px-8 py-3 md:text-lg text-md hover:scale-105 hover:from-orange-600 cursor-pointer transition-all duration-300">
+                       Ver Todos
+                    </Link>
                 </div>
             </div>
         </section>

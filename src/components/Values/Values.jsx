@@ -1,8 +1,6 @@
-import { FaHeart, FaLeaf, FaSeedling } from "react-icons/fa";
+import { FaHeart, FaLeaf, FaSeedling, FaShieldAlt } from "react-icons/fa";
 import { Heading } from "../Heading/Heading";
-import HeroBenga from '../../assets/hero_benga.png'
-
-
+import burgger from '../../assets/burgger.webp'
 
 export function Values() {
 
@@ -25,7 +23,7 @@ export function Values() {
         return (
             <div key={value.id} className="flex items-center gap-7">
                 <div>
-                    <span className="bg-gradient-to-b from-red-400 to-orange-500 w-15 h-15 rounded-full flex justify-center items-center text-3xl text-white">{value.icon}</span>
+                    <span className="bg-linear-to-b from-red-400 to-orange-500 w-15 h-15 rounded-full flex justify-center items-center text-3xl text-white">{value.icon}</span>
                 </div>
 
                 <div>
@@ -46,8 +44,8 @@ export function Values() {
                     <div className="flex flex-col justify-between md:min-h-100 gap-15">
                         {leftValues}
                     </div>
-                    <div className="md:flex w-1/2 hidden">
-                        <img src={HeroBenga} alt="" />
+                    <div className="md:flex w-3/4 hidden">
+                        <img src={burgger} alt="" />
                     </div>
                     {/* Right Values */}
                     <div className="flex flex-col justify-between md:min-h-100 gap-15">
@@ -62,26 +60,27 @@ export function Values() {
 const values = [
     {
         id: 1,
-        title: "Trust",
-        para: "lsdfghjasjaslajsljalsjalsjlajdlda jdsjdskd",
+        title: "Qualidade",
+        para: "Usamos apenas ingredientes frescos e selecionados para garantir sabor e excelência em cada prato.",
+        
         icon: <FaHeart />
     },
     {
         id: 2,
-        title: "Trust",
-        para: "lsdfghjasjaslajsljalsjalsjlajdlda jdsjdskd",
-        icon: <FaHeart />
+        title: "Confiança",
+        para: "Trabalhamos com transparência e compromisso para oferecer sempre a melhor experiência ao cliente.",
+        icon: <FaShieldAlt />
     },
     {
         id: 3,
-        title: "Trust",
-        para: "lsdfghjasjaslajsljalsjalsjlajdlda jdsjdskd",
+        title: "Sustentabilidade",
+        para: "Priorizamos práticas responsáveis, respeitando o meio ambiente e reduzindo desperdícios.",
         icon: <FaLeaf />
     },
     {
         id: 4,
-        title: "Trust",
-        para: "lsdfghjasjaslajsljalsjalsjlajdlda jdsjdskd",
+        title: "Frescura",
+        para: "Preparação diária com ingredientes frescos para garantir sabor autêntico e natural.",
         icon: <FaSeedling />
     },
 ]
