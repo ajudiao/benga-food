@@ -1,16 +1,47 @@
-# React + Vite
+# 🍔 BengaFood
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao **BengaFood**, um website moderno para um estabelecimento de fast food, desenvolvido com **React JS** e **Tailwind CSS**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Preview do Projeto
 
-## React Compiler
+![Preview do BengaFood](./src/assets/preview.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Sobre o Projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O **BengaFood** é um site focado em proporcionar uma experiência agradável para os clientes, permitindo:
+
+- Visualizar o menu completo  
+- Explorar diferentes categorias de comidas  
+- Ver detalhes dos produtos  
+- Navegação rápida e responsiva  
+
+---
+
+## Tecnologias Utilizadas
+
+- React JS  
+- JavaScript (ES6+)  
+- Tailwind CSS  
+
+---
+
+## Funcionalidades
+
+- Listagem de produtos (hambúrguer, pizza, cachorro, refeições, etc.)  
+- Filtro por categorias  
+- Layout responsivo (mobile e desktop)  
+- Interface moderna e intuitiva  
+
+---
+
+## Como Executar o Projeto
+
+```bash
+git clone https://github.com/seu-usuario/bengafood.git
+cd bengafood
+npm install
+npm run dev

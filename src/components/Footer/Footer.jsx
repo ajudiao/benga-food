@@ -57,7 +57,7 @@ export function Footer() {
                         </li>
                         <li className="flex items-center gap-3">
                             <HiOutlinePhone className="text-orange-500 text-2xl shrink-0" />
-                            <span>+244 9XX XXX XXX</span>
+                            <span>+244 944 921 970</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <HiOutlineMail className="text-orange-500 text-2xl shrink-0" />
